@@ -32,7 +32,7 @@ function getDbConn() {
     $serverPort = "5432";
     $dbName = "yrocher";
     $userName = "postgres";
-    $password = "postgres";
+    $password = "lp4U58c";
 
     $dbConnectionString = " host=" . $serverHost;
     $dbConnectionString .= " port=" . $serverPort;
