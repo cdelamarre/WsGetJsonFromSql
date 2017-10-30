@@ -77,7 +77,11 @@
     font-family:arial;
     text-align:left;
     color:#FFFFFF; 
+<<<<<<< HEAD
     display:none;
+=======
+    display:none ;
+>>>>>>> 57455da688c5d6be376552bdfb726e2bc58a66f2
 }
 
 .columns .ui-table-footer span{

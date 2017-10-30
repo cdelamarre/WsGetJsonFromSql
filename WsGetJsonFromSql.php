@@ -1,6 +1,5 @@
 <?php
 
-header("Access-Control-Allow-Origin: http://com.e-solutions.tm.fr");
 header('content-type:application/json;charset=SQL_ASCII');
 
 require 'WsGetJsonFromSqlLib.php';
