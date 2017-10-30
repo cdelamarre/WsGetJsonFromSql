@@ -76,7 +76,8 @@
     font-size:11px;
     font-family:arial;
     text-align:left;
-    color:#FFFFFF
+    color:#FFFFFF; 
+    display:none ;
 }
 
 .columns .ui-table-footer span{
