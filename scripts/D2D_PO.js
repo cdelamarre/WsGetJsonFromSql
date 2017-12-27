@@ -48,7 +48,7 @@ getUrlWhithoutNumPo = function (){
 
 goToUrl = function(){
 	var url = getUrlWithNumPo();
-	setChatroom();
+	//setChatroom();
 	document.location.href=url;
 }
 
@@ -74,13 +74,34 @@ goToUrlWithNumPo = function(whichNumPo){
 setSearchNumPoFromUrlAndLaunchSetContainers = function(){	
 	if (typeof(getParamsFromUrl()['num_po']) != 'undefined'){
 		if(getParamsFromUrl()['num_po'].length > 0){
-			var numPo = getParamsFromUrl()['num_po'];
-			setSearchNumPoWithUrl();
-			setContainers();
-			setChatroom();
-			showEDocmanModule();
+			setTimeout(function(){
+				var numPo = getParamsFromUrl()['num_po'];
+				setSearchNumPoWithUrl();
+				setContainers();
+				setChatroom();
+				showEDocmanModule();
+				hideJchatIcones();
+			}, 2000);
+
+		}else {
+			removeElementByClassName('sidepanel_block last_block');
 		}
+		
 	}
+}
+
+removeElementByClassName = function(strDivClassName){
+	var elementToRemove = document.getElementsByClassName(strDivClassName)[0];
+	elementToRemove.parentNode.removeChild(elementToRemove);
+}
+
+
+hideJchatIcones = function(){
+	removeElementByClassName('jchat_trigger_room');
+	removeElementByClassName('jchat_trigger_users_informations');
+	removeElementByClassName('jchat_trigger_export');
+	removeElementByClassName('jchat_trigger_refresh');
+	removeElementByClassName('jchat_trigger_delete');	
 }
 
 
