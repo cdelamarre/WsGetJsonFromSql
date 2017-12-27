@@ -81,12 +81,14 @@ setSearchNumPoFromUrlAndLaunchSetContainers = function(){
 				setChatroom();
 				showEDocmanModule();
 				hideJchatIcones();
+
 			}, 2000);
 
 		}else {
 			removeElementByClassName('sidepanel_block last_block');
 		}
-		
+		forceJChatPublicButtonOnclick();
+
 	}
 }
 
@@ -95,6 +97,19 @@ removeElementByClassName = function(strDivClassName){
 	elementToRemove.parentNode.removeChild(elementToRemove);
 }
 
+
+forceJChatPublicButtonOnclick = function(){
+	
+ var element = document.getElementById('jchat_userstab');
+
+ element.addEventListener('click', 
+
+ 		function(event) {
+			
+				$("#jchat_userstab_popup").show();
+		}
+	);
+}
 
 hideJchatIcones = function(){
 	removeElementByClassName('jchat_trigger_room');
