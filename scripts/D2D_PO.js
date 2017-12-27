@@ -78,14 +78,35 @@ setSearchNumPoFromUrlAndLaunchSetContainers = function(){
 			setSearchNumPoWithUrl();
 			setContainers();
 			setChatroom();
+			showEDocmanModule();
 		}
 	}
 }
 
+
+showEDocmanModule = function(){
+	console.log("start_showEDocmanModule");
+	var whichNumPo = $('#searchNumPo').val();
+	var whichUserName = $('#userName').val();
+	var urlToLoad = "http://test-d2d.fcsystem.com/esolutions/EDocmanModule.php";
+     
+	$.ajax({
+		url : urlToLoad,
+		type : 'GET', // Le type de la requête HTTP, ici devenu POST
+		data : 'whichNumPo=' + whichNumPo + '&whichUserName=' + whichUserName, 
+		dataType : 'html',		
+		success: function(result){
+            $("#D2D_PO_EDocmanModule").html(result);			
+	console.log($("#D2D_PO_EDocmanModule").innerHTML);
+        }}); 
+	console.log("end_showEDocmanModule");
+}
+
+
+
 setChatroom = function(){
 	var whichNumPo = $('#searchNumPo').val();
 	var whichUserName = $('#userName').val();
-//	var baseUrlToLoad = "http://test-d2d.fcsystem.com/esolutions/AttachPoToUserName.php?whichNumPo=4000213g01&whichUserName=pgWeb";
 	var urlToLoad = "http://test-d2d.fcsystem.com/esolutions/AttachPoToUserName.php";
      
 	 
@@ -97,21 +118,6 @@ setChatroom = function(){
 		success: function(result){
             $("#div_D2D_PO").html(result);
         }}); 
-/*
-    $.ajax({
-		url : urlToLoad,
-		type : 'GET', // Le type de la requête HTTP, ici devenu POST
-		data : 'whichNumPo=' + whichNumPo + '&whichUserName=' + whichUserName, 
-		dataType : 'html',
-/*
-		success: function(result)//retour de requête
-		{
-			alert("Record successfully updated");
-		}
-*/
-/*
-    });   
-*/
 
 	console.log(whichNumPo+" "+userName);
 }
